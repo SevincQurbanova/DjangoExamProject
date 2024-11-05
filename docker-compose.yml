@@ -1,0 +1,53 @@
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: djangoexam_postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: djangoexamdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - djangoexam_network
+
+  adminer:
+    image: adminer
+    container_name: djangoexam_adminer
+    ports:
+      - "8081:8080"
+    networks:
+      - djangoexam_network
+
+  redis:
+    image: redis:latest
+    container_name: djangoexam_redis
+    ports:
+      - "6379:6379"
+    networks:
+      - djangoexam_network     
+
+  celery:
+    build: .
+    container_name: djangoexam_celery
+    command: celery -A djangoexamproject worker -l info
+    networks:
+      - djangoexam_network
+
+  celery-beat:
+    build: .
+    container_name: djangoexam_celery_beat
+    command: celery -A djangoexamproject beat -l info
+    networks:
+      - djangoexam_network
+
+volumes:
+  postgres_data:
+networks:
+  djangoexam_network:
+    driver: bridge
