@@ -41,24 +41,6 @@ class LoginView(generics.GenericAPIView):
             return Response(tokens)
         return Response({"error": "Invalid credentials"}, status=400)
 
-# class DepartmentViewSet(viewsets.ModelViewSet):
-#     queryset = Department.objects.all()
-#     serializer_class = DepartmentSerializer
-#     permission_classes = [IsAuthenticated]
-#     http_method_names = ['get', 'post', 'put', 'delete']
-
-
-# class PositionViewSet(viewsets.ModelViewSet):
-#     queryset = Position.objects.all()
-#     serializer_class = PositionSerializer
-#     permission_classes = [IsAuthenticated]
-#     http_method_names = ['get', 'post', 'put', 'delete']
-
-# class EmployeeViewSet(viewsets.ModelViewSet):
-#     queryset = Employee.objects.all()
-#     serializer_class = EmployeeSerializer
-#     permission_classes = [IsAuthenticated]
-#     http_method_names = ['get', 'post', 'put', 'delete']
 class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer

@@ -2,7 +2,7 @@
 from django.http import HttpResponseForbidden
 
 # List of blocked IPs
-BLOCKED_IPS = ['192.168.1.10', '10.0.0.5']  # Replace with actual IPs you want to block
+BLOCKED_IPS = ['192.168.1.10', '10.0.0.5']  
 
 class BlockIPMiddleware:
     def __init__(self, get_response):

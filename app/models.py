@@ -44,64 +44,6 @@ class User(AbstractUser):
     # Use the custom manager for case-insensitive authentication
     objects = CustomUserManager()
 
-    # No lowercase transformation in the save method
-    
-# class CustomUserManager(UserManager):
-#     def get_by_natural_key(self, username):
-#         # Override to make lookups case-insensitive
-#         return self.get(username__iexact=username)
-    
-#     def create_user(self, username, email=None, password=None, **extra_fields):
-#         # Ensure the username is saved as lowercase
-#         if username:
-#             username = username.lower()
-#         return super().create_user(username, email, password, **extra_fields)
-
-#     def create_superuser(self, username, email=None, password=None, **extra_fields):
-#         extra_fields.setdefault('is_staff', True)
-#         extra_fields.setdefault('is_superuser', True)
-#         extra_fields.setdefault('role', 'admin')  # Set role to admin for superusers
-
-#         if extra_fields.get('is_staff') is not True:
-#             raise ValueError('Superuser must have is_staff=True.')
-#         if extra_fields.get('is_superuser') is not True:
-#             raise ValueError('Superuser must have is_superuser=True.')
-
-#         # Ensure the username is saved as lowercase for superuser
-#         if username:
-#             username = username.lower()
-
-#         return self.create_user(username, email, password, **extra_fields)
-    
-# class User(AbstractUser):
-#     ROLES = [
-#         ('admin', 'Admin'),
-#         ('user', 'User')
-#     ]
-#     role = models.CharField(max_length=5, choices=ROLES, default='user')
-
-#     groups = models.ManyToManyField(
-#         'auth.Group',
-#         related_name='custom_user_groups',
-#         blank=True
-#     )
-#     user_permissions = models.ManyToManyField(
-#         'auth.Permission',
-#         related_name='custom_user_permissions',
-#         blank=True
-#     )
-
-#     objects = CustomUserManager()
-
-#     def save(self, *args, **kwargs):
-#         # Ensure the username is stored as lowercase
-#         if self.username:
-#             self.username = self.username.lower()
-#         super().save(*args, **kwargs)
-
-
-
-
 class Department(models.Model):
     # class Meta:
     #    db_table = 'department'  # Custom table name without app prefix
