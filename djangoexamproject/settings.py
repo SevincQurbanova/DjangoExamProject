@@ -4,6 +4,7 @@ import os
 from datetime import timedelta
 from decouple import config
 from celery.schedules import crontab
+from django.utils.translation import gettext_lazy as _
 
 WSGI_APPLICATION = 'djangoexamproject.wsgi.application'
 
@@ -11,6 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG=True
 SECRET_KEY = 'your-secret-key123654' 
+
+
 
 AUTH_USER_MODEL = 'app.User'
 
@@ -49,17 +52,16 @@ USE_TZ = True
 
 # Define the available languages
 LANGUAGES = [
-    ('en', 'English'),
-    ('az', 'Azərbaycanca'),  # Add other languages you need
-    # ('es', 'Spanish'),
-    # ('de', 'German'),
+    ('en', _('English')),
+    ('az', _('Azerbaijani')),
 ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 # Specify the directory where translation files will be stored
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'locale'),  # Ensure this folder exists
 ]
-
 
 STATIC_URL = '/static/'
 ROOT_URLCONF = 'djangoexamproject.urls'
@@ -117,6 +119,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'app.middleware.BlockIPMiddleware',  # Add your custom middleware here
+    'django.middleware.locale.LocaleMiddleware',
+    # 'app.middleware.ForceEnglishMiddleware',  # Ensure this matches your app name
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -1,6 +1,6 @@
 # djangoexamapp/middleware.py
 from django.http import HttpResponseForbidden
-
+from django.utils import translation
 # List of blocked IPs
 BLOCKED_IPS = ['192.168.1.10', '10.0.0.5']  
 
