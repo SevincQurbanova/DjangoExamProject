@@ -40,15 +40,11 @@ DEFAULT_FROM_EMAIL = config('EMAIL_USER')
 
 
 # Set the default language
-LANGUAGE_CODE = 'en'  # Default language code, e.g., 'en' for English, 'fr' for French
-
 # Enable internationalization
-# TIME_ZONE = 'UTC'
-TIME_ZONE = 'Asia/Baku'
-
-USE_I18N = True
-
-USE_TZ = True
+LANGUAGE_CODE = 'en'  # Default language code, e.g., 'en' for English, 'fr' for French
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),  # Ensure this folder exists
+]
 
 # Define the available languages
 LANGUAGES = [
@@ -56,12 +52,23 @@ LANGUAGES = [
     ('az', _('Azerbaijani')),
 ]
 
+USE_I18N = True
+
+USE_TZ = True
+
+
+
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Baku'
+
+
+
+
+
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 # Specify the directory where translation files will be stored
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),  # Ensure this folder exists
-]
+
 
 STATIC_URL = '/static/'
 ROOT_URLCONF = 'djangoexamproject.urls'
@@ -113,14 +120,14 @@ TEMPLATES = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Move this line here
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'app.middleware.BlockIPMiddleware',  # Add your custom middleware here
-    'django.middleware.locale.LocaleMiddleware',
-    # 'app.middleware.ForceEnglishMiddleware',  # Ensure this matches your app name
+
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -2,7 +2,7 @@
 from django.http import HttpResponseForbidden
 from django.utils import translation
 # List of blocked IPs
-BLOCKED_IPS = ['192.168.1.10', '10.0.0.5']  
+#BLOCKED_IPS = ['192.168.1.10', '10.0.0.5']  
 
 class BlockIPMiddleware:
     def __init__(self, get_response):
@@ -10,7 +10,7 @@ class BlockIPMiddleware:
 
     def __call__(self, request):
         ip = request.META.get('REMOTE_ADDR')
-        if ip in BLOCKED_IPS:
-            return HttpResponseForbidden("Your IP address is blocked.")
+       # if ip in BLOCKED_IPS:
+       #     return HttpResponseForbidden("Your IP address is blocked.")
         response = self.get_response(request)
         return response

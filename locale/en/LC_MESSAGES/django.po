@@ -30,6 +30,19 @@ msgstr ""
 msgid "Azerbaijani"
 msgstr ""
 
+
+msgid "Audit mütəxəssisi"
+msgstr "Audit specialist"
+
+msgid "Finance manager"
+msgstr "Finance manager"
+
+msgid "Operations analyst"
+msgstr "Operations analyst"
+
+msgid "Aparıcı maaliyyə mütəxəssisi"
+msgstr "Leading financial specialist"
+
 #: .\venv\Lib\site-packages\click\_termui_impl.py:518
 #, python-brace-format
 msgid "{editor}: Editing failed"

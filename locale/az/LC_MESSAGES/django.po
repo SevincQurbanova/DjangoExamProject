@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 00:44+0400\n"
+"POT-Creation-Date: 2024-11-12 10:28+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\app\models.py:50 .\app\models.py:58
+#: .\app\models.py:50 .\app\models.py:59
 msgid "Name"
 msgstr ""
 
-#: .\djangoexamproject\settings.py:53
+#: .\djangoexamproject\settings.py:51
 msgid "English"
 msgstr ""
 
-#: .\djangoexamproject\settings.py:54
+#: .\djangoexamproject\settings.py:52
 msgid "Azerbaijani"
 msgstr ""
+
+
+msgid "Audit mütəxəssisi"
+msgstr "Audit mütəxəssisi"
+
+msgid "Finance manager"
+msgstr "Finance manager"
+
+msgid "Operations analyst"
+msgstr "Operations analyst"
+
+msgid "Aparıcı maaliyyə mütəxəssisi"
+msgstr "Aparıcı maaliyyə mütəxəssisi"
 
 #: .\venv\Lib\site-packages\click\_termui_impl.py:518
 #, python-brace-format
